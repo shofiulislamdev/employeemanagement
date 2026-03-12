@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs")
 let registrationController = async (req, res) => {
     const { username, email, password } = req.body
 
-    // Todo for next -> validation
+    // Todo for next-> validation
 
     // Check Existing User
 
