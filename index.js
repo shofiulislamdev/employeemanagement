@@ -3,7 +3,7 @@ const express = require('express')
 
 const dbConnection = require('./config/dbConnection')
 const { registrationController, loginController, logOutController } = require('./controllers/authController')
-const {profileCreateController, getProfile} = require('./controllers/profileCreateController')
+const {profileCreateController, getProfile, getSingleProfile, updateProfile, holdProfile} = require('./controllers/profileCreateController')
 const app = express()
 
 
@@ -17,7 +17,10 @@ app.post("/logout", logOutController)
 
 //Profile Create
 app.post("/profilecreate", profileCreateController)
+app.post("/update/:id", updateProfile)
+app.post("/holdprofile", holdProfile)
 app.get("/getprofile", getProfile)
+app.get("/getprofile/:id", getSingleProfile)
 
 // console.log(process.env.PORT)
 const port = process.env.PORT || 8000;

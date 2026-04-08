@@ -43,6 +43,11 @@ const profileSchema = new Schema({
     designation: {
         type: String,
         required: true
+    },
+
+    isHold: {
+        type: Boolean,
+        default: false
     }
 })
 
