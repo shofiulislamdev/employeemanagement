@@ -49,6 +49,9 @@ let profileCreateController = async (req, res) => {
 let getProfile = async (req, res) => {
     let data = await Profile.find({})
 
+    // isHold = true mane hold data show hobena 
+    // let data = await Profile.find({isHold: {$ne: true}})
+
     res.status(200).json({
         status: true,
         message: "All Profile",
@@ -92,5 +95,12 @@ let holdProfile = async (req, res) => {
 }
 
 
+let getHoldProfile = async (req, res) => {
+    let data = await Profile.find({isHold: {$eq: true}})
 
-module.exports = { profileCreateController, getProfile, getSingleProfile, updateProfile, holdProfile }
+    res.send(data)
+}
+
+
+
+module.exports = { profileCreateController, getProfile, getSingleProfile, updateProfile, holdProfile, getHoldProfile }
