@@ -101,6 +101,11 @@ let getHoldProfile = async (req, res) => {
     res.send(data)
 }
 
+let deleteProfile = async (req, res) => {
+    let {id} = req.params
+    let data = await Profile.findByIdAndDelete({_id: id})
 
+    res.send("Deleted")
+}
 
-module.exports = { profileCreateController, getProfile, getSingleProfile, updateProfile, holdProfile, getHoldProfile }
+module.exports = { profileCreateController, getProfile, getSingleProfile, updateProfile, holdProfile, getHoldProfile, deleteProfile }
